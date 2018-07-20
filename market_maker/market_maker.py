@@ -274,13 +274,13 @@ class MarketMaker:
 
     def run_loop(self):
         while True:
-            # try:
-            if not self.trading_paused:
-                sleep(self.loop_interval)
-                self.sanity_check()
-                buy_orders, sell_orders = self.generate_orders()
-                self.converge_orders(buy_orders, sell_orders)
-            # except Exception as e:
-            #     traceback.print_exc()
-            #     self.pause_trading(
-            #         halt_message=str(e))
+            try:
+                if not self.trading_paused:
+                    sleep(self.loop_interval)
+                    self.sanity_check()
+                    buy_orders, sell_orders = self.generate_orders()
+                    self.converge_orders(buy_orders, sell_orders)
+            except Exception as e:
+                traceback.print_exc()
+                self.pause_trading(
+                    halt_message=str(e))
