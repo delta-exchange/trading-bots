@@ -24,6 +24,12 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
+3.  create a log folder
+
+```
+mkdir log
+```
+
 ## Market Making Bot
 
 Market Makers profit by charging higher offer prices than bid prices. The difference is called the ‘spread’. The spread compensates the market makers for the risk inherited in such trades. The risk is the price movement against the market makers trading position.
@@ -32,12 +38,24 @@ Market Makers profit by charging higher offer prices than bid prices. The differ
 
 1.  You can create multiple configurations for multiple running instances. Lets create a configuration for running the bot on testnet
 
-2.  Copy market_maker/.env.sample to market_maker/.env.testnet
+2.  Copy `market_maker/.env.sample` to `market_maker/.env.testnet`
 
-3.  Edit market_maker/.env.testnet to enter your account credentials. You can tweak other settings as well.
+3.  Edit `market_maker/.env.testnet` to enter your account credentials. You can tweak other settings as well.
 
-4.  From the root folder, Pass the environment and run market_maker.py
+4.  From the root folder, Pass the environment and run `market_maker.py`
 
 ```
 ENVIRONMENT=testnet python market_maker.py
+```
+
+### How to customize
+
+1.  Writing your own custom strategy is super easy. Just refer to `market_maker/custom_strategy.py`
+2.  You need to define `generate_orders` function which should return a tuple of (buy_orders, sell_orders)
+3.  Once you define your custom_strategy, you can run it like
+
+```
+from market_maker.custom_strategy import CustomStrategy
+mm = CustomStrategy()
+mm.run_loop()
 ```
