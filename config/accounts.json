@@ -1,0 +1,9 @@
+{
+  "delta": {
+    "your-delta-account-email-here": {
+      "api_key": "-----api-key------",
+      "api_secret": "-----api-secret----",
+      "chain": "testnet"
+    }
+  }
+}

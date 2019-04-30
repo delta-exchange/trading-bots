@@ -19,7 +19,7 @@ Develop on Testnet first!
 2.  Create a new virtualenv and install dependencies
 
 ```
-virtualenv --python=python3.5 venv
+virtualenv -p python3 venv
 source venv/bin/activate
 pip install -r requirements.txt
 ```
@@ -38,21 +38,21 @@ Market Makers profit by charging higher offer prices than bid prices. The differ
 
 1.  You can create multiple configurations for multiple running instances. Lets create a configuration for running the bot on testnet
 
-2.  Copy `market_maker/.env.sample` to `market_maker/.env.testnet`
+2.  Copy `config/.env.sample` to `config/.env.testnet`. You can tweak settings here.
 
-3.  Edit `market_maker/.env.testnet` to enter your account credentials. You can tweak other settings as well.
+3.  Edit `config/accounts.json` to enter your account credentials.
 
-4.  From the root folder, Pass the environment and run `market_maker.py`
+4.  From the root folder, Pass the environment and run `strategy_runner.py` 
 
+5.  You can also run your strategy from pm2, add your bot configurations in `ecosystem.config.js` 
 ```
-ENVIRONMENT=testnet python market_maker.py
+pm2 start ecosystem.config.js --only
 ```
 
 ### How to customize
 
 1.  Writing your own custom strategy is super easy. Just refer to `market_maker/custom_strategy.py`
-2.  You need to define `generate_orders` function which should return a tuple of (buy_orders, sell_orders)
-3.  Once you define your custom_strategy, you can run it like
+2.  Once you define your custom_strategy, you can run it like
 
 ```
 from market_maker.custom_strategy import CustomStrategy
