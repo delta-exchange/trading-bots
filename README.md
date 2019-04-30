@@ -46,13 +46,13 @@ Market Makers profit by charging higher offer prices than bid prices. The differ
 
 5.  You can also run your strategy from pm2, add your bot configurations in `ecosystem.config.js` 
 ```
-pm2 start ecosystem.config.js --only
+pm2 start ecosystem.config.js --only=MyBot
 ```
 
 ### How to customize
 
 1.  Writing your own custom strategy is super easy. Just refer to `market_maker/custom_strategy.py`
-2.  Once you define your custom_strategy, you can run it like
+3.  Once you define your custom_strategy, add it in strategy runner.
 
 ```
 from market_maker.custom_strategy import CustomStrategy
