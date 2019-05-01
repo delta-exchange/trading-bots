@@ -5,7 +5,6 @@ from decimal import Decimal
 from market_maker.base import BaseMarketMaker
 from clients.delta import Delta, OrderState, OrderType
 from delta_rest_client import cancel_order_format
-from utils.alerts import slack
 from utils.utility import round_price_by_tick_size
 from utils.margin_helper import calculateMarginFromLiquidationPrice, funding_dampener
 import operator

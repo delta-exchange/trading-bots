@@ -17,7 +17,6 @@ from clients.delta import Delta
 from delta_rest_client import create_order_format, round_by_tick_size
 
 from utils.utility import takePrice, round_price_by_tick_size
-from utils.alerts import slack
 from abc import ABC, abstractmethod
 from config import accounts
 import custom_exceptions

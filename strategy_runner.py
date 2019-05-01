@@ -4,7 +4,7 @@ import traceback
 from raven import Client
 from market_maker.unhedged import UnhedgedMarketMaker
 
-from config import dotenv
+# from config import dotenv
 
 
 def main():

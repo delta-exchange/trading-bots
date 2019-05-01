@@ -3,7 +3,7 @@ import json
 
 global accounts
 accounts = json.loads(open(os.path.join(os.path.dirname(__file__),
-                                        'prod_accounts.json')).read())
+                                        'accounts.json')).read())
 
 
 def exchange_accounts(exchange):
